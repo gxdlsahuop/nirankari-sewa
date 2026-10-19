@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>निरंकारी संत समागम — बिहार</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(42, 82, 152, 0.15), transparent 25%);
+    color: #e2e8f0;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 950px;
+    margin: 0 auto;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+    overflow: hidden;
+    position: relative;
+  }
+
+  header {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0) 100%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  header h1 { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px; 
+    font-weight: 700;
+    background: linear-gradient(to right, #F3E5AB, #D4AF37, #F3E5AB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  header p { font-size: 13px; color: #94a3b8; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; }
+
+  .admin-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .admin-btn:hover { background: #D4AF37; color: #0f172a; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+
+  .date-section {
+    padding: 15px 25px;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  
+  .date-section::-webkit-scrollbar { height: 4px; }
+  .date-section::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.5); border-radius: 10px; }
+
+  .date-btn {
+    padding: 8px 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.03);
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s;
+  }
+
+  .date-btn:hover { background: rgba(255,255,255,0.1); }
+  
+  .date-btn.active { 
+    background: linear-gradient(135deg, #D4AF37, #B8860B); 
+    color: #0f172a; 
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  }
+
+  .live-banner {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    border-left: 4px solid #28a745;
+    padding: 14px 20px;
+    margin: 20px 25px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4ade80;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .live-banner.off {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+    border-left-color: #D4AF37;
+    color: #D4AF37;
+  }
+
+  .live-banner .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 10px #4ade80;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .content { padding: 25px; overflow-x: auto; }
+
+  table.main-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  table.main-table thead { background: rgba(15, 23, 42, 0.9); }
+
+  table.main-table th {
+    color: #D4AF37;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+  }
+
+  table.main-table td {
+    padding: 16px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: middle;
+    background: rgba(30, 41, 59, 0.3);
+    transition: all 0.3s;
+  }
+
+  table.main-table tr:last-child td { border-bottom: none; }
+  table.main-table tr:hover td { background: rgba(255,255,255,0.05); }
+
+  .group-cell {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #D4AF37;
+    text-align: center;
+    font-size: 14px;
+    width: 110px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    letter-spacing: 1px;
+  }
+
+  .jila-cell { font-weight: 500; color: #f8fafc; font-size: 16px; }
+  .time-cell { white-space: nowrap; font-weight: 400; color: #cbd5e1; font-size: 14px; }
+
+  .seva-tag {
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    white-space: nowrap;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .status-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .status-tag.done { background: rgba(40, 167, 69, 0.15); color: #4ade80; border: 1px solid rgba(40, 167, 69, 0.3); } 
+  .status-tag.wait { background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); } 
+  .status-tag.live { background: rgba(0, 123, 255, 0.15); color: #60a5fa; border: 1px solid rgba(0, 123, 255, 0.3); animation: blink 1.5s infinite; } 
+
+  tr.active-row td:not(.group-cell) { 
+    background: rgba(212, 175, 55, 0.08) !important; 
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  
+  tr.active-row td.group-cell { background: rgba(212, 175, 55, 0.15) !important; }
+
+  /* ================= MODALS ================= */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .modal-overlay.show { display: flex; }
+
+  .modal-box {
+    background: #1e293b;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    width: 100%;
+    max-width: 1050px; 
+    max-height: 90vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  }
+
+  .modal-header {
+    padding: 15px 20px;
+    background: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    color: #D4AF37;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+  }
+  .modal-header h2 { font-size: 16px; font-weight: 600; letter-spacing: 1px; }
+  .close-btn { background: none; border: none; color: #94a3b8; font-size: 24px; cursor: pointer; transition: 0.3s; }
+  .close-btn:hover { color: #D4AF37; }
+
+  .modal-body {
+    padding: 15px;
+    overflow-y: auto; 
+    overflow-x: auto; 
+    color: #cbd5e1;
+  }
+
+  /* LOGIN SCREEN */
+  .login-box {
+    max-width: 400px;
+    text-align: center;
+  }
+  .login-box h2 { margin-bottom: 20px; color: #D4AF37; }
+  .login-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  .login-input:focus { border-color: #D4AF37; outline: none; }
+
+  /* ADMIN TABLE */
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    min-width: 900px; 
+  }
+  
+  .admin-table th, .admin-table td {
+    padding: 10px 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .admin-table th {
+    background: rgba(15, 23, 42, 0.6);
+    color: #D4AF37;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .admin-table input[type="text"], .admin-table select, .admin-table input[type="time"] {
+    width: 100%;
+    padding: 10px 8px; 
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #fff;
+    transition: 0.3s;
+  }
+  
+  .admin-table input[type="text"]:focus, .admin-table select:focus, .admin-table input[type="time"]:focus {
+    border-color: #D4AF37;
+    outline: none;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  }
+
+  .admin-table input[type="time"] { width: 130px; min-width: 130px; text-align: center; }
+  .admin-table select { min-width: 70px; }
+  .admin-table td:nth-child(2) input { min-width: 120px; } 
+  .admin-table td:nth-child(5) input { min-width: 150px; } 
+  .admin-table td:nth-child(6) input { min-width: 140px; } 
+
+  .admin-table input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #D4AF37;
+  }
+
+  .del-btn {
+    background: rgba(231, 76, 60, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  .del-btn:hover { background: #ff6b6b; color: #fff; }
+
+  .modal-footer {
+    padding: 15px 20px;
+    background: rgba(15, 23, 42, 0.8);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .btn { 
+    padding: 8px 20px; 
+    border-radius: 8px; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: 600; 
+    font-size: 14px; 
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+  }
+  
+  .btn-primary { 
+    background: linear-gradient(135deg, #D4AF37, #B8860B); 
+    color: #0f172a; 
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4); }
+  
+  .btn-secondary { 
+    background: transparent; 
+    color: #cbd5e1; 
+    border: 1px solid rgba(255,255,255,0.2); 
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+  
+  .btn-add { 
+    background: rgba(212, 175, 55, 0.1); 
+    color: #D4AF37; 
+    border: 1px dashed #D4AF37;
+    margin-bottom: 15px; 
+    padding: 8px 15px; 
+    font-size: 13px; 
+  }
+  .btn-add:hover { background: rgba(212, 175, 55, 0.2); }
+
+  /* CONFIRM POPUP */
+  .confirm-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .confirm-overlay.show { display: flex; }
+
+  .confirm-box {
+    background: #1e293b;
+    border: 1px solid rgba(231, 76, 60, 0.4);
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  }
+
+  .confirm-box p {
+    color: #e2e8f0;
+    font-size: 16px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .confirm-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .confirm-btns button {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+    font-family: inherit;
+  }
+
+  .btn-yes {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  }
+  .btn-yes:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5); }
+
+  .btn-no {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #cbd5e1;
+  }
+  .btn-no:hover { background: rgba(255,255,255,0.05); }
+
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .content { padding: 10px; }
+    .date-section { padding: 12px 15px; gap: 8px; }
+    .date-btn { padding: 6px 14px; font-size: 12px; }
+    table.main-table th { padding: 10px 5px; font-size: 10px; }
+    table.main-table td { padding: 12px 5px; }
+    header { padding: 25px 15px; }
+    header h1 { font-size: 18px; }
+    header p { font-size: 10px; }
+    .admin-btn { top: 15px; right: 15px; padding: 5px 10px; font-size: 10px; }
+    .group-cell { font-size: 11px; width: 65px; }
+    .time-cell, .jila-cell { font-size: 12px; }
+    .seva-tag { font-size: 10px; padding: 4px 8px; }
+    .status-tag { font-size: 9px; padding: 2px 6px; margin-left: 2px; }
+    .live-banner { font-size: 12px; padding: 10px; margin: 15px 15px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>निरंकारी संत समागम</h1>
+    <p>शौचालय सेवा समय चार्ट — बिहार</p>
+    <button class="admin-btn" onclick="openAdmin()">⚙️ Admin</button>
+  </header>
+
+  <div class="date-section" id="dateButtons"></div>
+  <div class="live-banner" id="liveBanner"></div>
+
+  <div class="content">
+    <table class="main-table">
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th>जिला / क्षेत्र</th>
+          <th>समय</th>
+          <th>सेवा</th>
+        </tr>
+      </thead>
+      <tbody id="chartBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ================= LOGIN MODAL ================= -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box login-box">
+    <div class="modal-header" style="border-radius: 12px 12px 0 0;">
+      <h2>🔐 Admin Login</h2>
+      <button class="close-btn" onclick="closeLogin()">&times;</button>
+    </div>
+    <div class="modal-body" style="padding: 25px;">
+      <input type="email" id="adminEmail" class="login-input" placeholder="Email ID" autocomplete="off">
+      <input type="password" id="adminPass" class="login-input" placeholder="पासवर्ड (Password)" autocomplete="off">
+      <button class="btn btn-primary" style="width: 100%;" onclick="checkLogin()">Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ADMIN MODAL ================= -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>⚙️ ADMIN CONTROL PANEL</h2>
+      <button class="close-btn" onclick="closeAdmin()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">
+        * <b>सेवा पूरी?</b> वाले बॉक्स पर टिक करने से यूजर पेज पर "हो गया" लिखा आ जाएगा।<br>
+      </p>
+      <button class="btn btn-add" onclick="addNewRow()">+ नया जिला जोड़ें</button>
+      
+      <table class="admin-table" id="adminTable">
+        <thead>
+          <tr>
+            <th width="80">Group</th>
+            <th>जिला</th>
+            <th width="140">Start Time</th>
+            <th width="140">End Time</th>
+            <th>समय (Text)</th>
+            <th>सेवा</th>
+            <th width="90">सेवा पूरी? (✓)</th>
+            <th width="70">हटाएं</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody">
+          <!-- Rows JS se aayengi -->
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeAdmin()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveAdminData()">Save Data</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PREMIUM CONFIRM MODAL ================= -->
+<div class="confirm-overlay" id="confirmModal">
+  <div class="confirm-box">
+    <p>क्या आप वाकई इस जिले को हटाना चाहते हैं?</p>
+    <div class="confirm-btns">
+      <button class="btn-no" onclick="closeConfirm()">नहीं (No)</button>
+      <button class="btn-yes" onclick="confirmDelete()">हाँ (Yes)</button>
+    </div>
+  </div>
+</div>
+<script type="module">
+  // ==========================================
+  // 1. FIREBASE SETUP & CONFIGURATION
+  // ==========================================
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  // Naya Import Firebase Authentication ke liye
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZ61qhbYx-sUnE1KNbenYwrg5DNyMoCtY",
+    authDomain: "nirankari-sewa.firebaseapp.com",
+    databaseURL: "https://nirankari-sewa-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "nirankari-sewa",
+    storageBucket: "nirankari-sewa.firebasestorage.app",
+    messagingSenderId: "120398583355",
+    appId: "1:120398583355:web:4a8fea49d520369257ae1e"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app); // Auth Initialize kiya
+
+  // ==========================================
+  // 2. GLOBAL VARIABLES & DATA
+  // ==========================================
+  const defaultData = [
+    { group: "A", jila: "बेतिया",     start: "09:00",  end: "13:00", time: "9:00 AM – 1:00 PM", seva: "शौचालय सेवा", completed: false },
+    { group: "B", jila: "गोपालगंज",   start: "09:00",  end: "13:00", time: "9:00 AM – 1:00 PM", seva: "शौचालय सेवा", completed: false },
+    { group: "C", jila: "छपरा",       start: "09:00",  end: "13:00", time: "9:00 AM – 1:00 PM", seva: "शौचालय सेवा", completed: false },
+    { group: "D", jila: "दरभंगा",     start: "09:00",  end: "13:00", time: "9:00 AM – 1:00 PM", seva: "शौचालय सेवा", completed: false }
+  ];
+
+  let data = []; 
+  let selectedDateStr = ""; 
+  let deleteIndexToConfirm = -1;
+
+  // ==========================================
+  // 3. FIREBASE REALTIME LISTENER
+  // ==========================================
+  const docRef = doc(db, "websiteData", "sewaList");
+  
+  onSnapshot(docRef, (docSnap) => {
+    if (docSnap.exists()) {
+      data = docSnap.data().list;
+    } else {
+      data = [...defaultData];
+      setDoc(docRef, { list: data });
+    }
+    renderChart(); 
+  });
+
+  // ==========================================
+  // 4. DATE SETUP (Auto Select Today)
+  // ==========================================
+  function initDates() {
+    const dates = [];
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const month = monthNames[currentMonth];
+
+    for (let day = 20; day <= 28; day++) {
+      const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      dates.push({ display: `${day} ${month}`, full: dateStr });
+    }
+
+    const todayStr = new Date().toISOString().split('T')[0];
+    let defaultSelect = dates.find(d => d.full === todayStr);
+    
+    if (!defaultSelect) defaultSelect = dates[0];
+
+    const btnContainer = document.getElementById("dateButtons");
+    btnContainer.innerHTML = "";
+    
+    dates.forEach((d) => {
+      const btn = document.createElement("button");
+      btn.className = "date-btn" + (d.full === defaultSelect.full ? " active" : "");
+      btn.innerHTML = d.display;
+      btn.onclick = () => selectDate(d.full, btn);
+      btnContainer.appendChild(btn);
+    });
+
+    selectedDateStr = defaultSelect.full;
+  }
+
+  window.selectDate = function(dateStr, btnElement) {
+    selectedDateStr = dateStr;
+    document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+    btnElement.classList.add('active');
+    renderChart();
+  }
+
+  // ==========================================
+  // 5. MAIN CHART RENDER (User Page)
+  // ==========================================
+  function renderChart() {
+    if(!data || data.length === 0) return; 
+
+    let html = "";
+    const liveList = [];
+    const todayStr = new Date().toISOString().split('T')[0];
+    const isToday = (selectedDateStr === todayStr);
+
+    data.forEach(r => {
+      let statusBadge = "";
+      let rowClass = "";
+
+      if (r.completed) {
+        statusBadge = '<span class="status-tag done">✓ हो गया</span>';
+        rowClass = "active-row";
+      } 
+      else if (isToday && r.start && r.end) {
+        const now = new Date();
+        const curMins = now.getHours() * 60 + now.getMinutes();
+        
+        const startParts = r.start.split(':');
+        const endParts = r.end.split(':');
+        const startMins = parseInt(startParts[0]) * 60 + parseInt(startParts[1] || 0);
+        const endMins = parseInt(endParts[0]) * 60 + parseInt(endParts[1] || 0);
+        
+        if (curMins >= startMins && curMins < endMins) {
+          rowClass = "active-row"; 
+          statusBadge = '<span class="status-tag live">● चालू है</span>';
+          liveList.push(`Group ${r.group} → ${r.jila}`);
+        } else if (curMins < startMins) {
+          statusBadge = '<span class="status-tag wait">⏳ आगे</span>';
+        } else {
+          statusBadge = '<span class="status-tag done">✓ हो गया</span>';
+        }
+      }
+
+      html += `<tr class="${rowClass}">
+        <td class="group-cell">GROUP ${r.group}</td>
+        <td class="jila-cell">${r.jila} ${statusBadge}</td>
+        <td class="time-cell">${r.time}</td>
+        <td><span class="seva-tag">${r.seva}</span></td>
+      </tr>`;
+    });
+
+    document.getElementById("chartBody").innerHTML = html;
+
+    const banner = document.getElementById("liveBanner");
+    
+    if (!isToday) {
+      banner.className = "live-banner off";
+      const d = new Date(selectedDateStr);
+      const disp = d.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()];
+      banner.innerHTML = `📅 आपने ${disp} की तारीख चुनी है`;
+    } 
+    else if (liveList.length > 0) {
+      banner.className = "live-banner";
+      banner.innerHTML = `<span class="dot"></span> अभी सेवा में: ${liveList.join(" &nbsp;|&nbsp; ")}`;
+    } 
+    else {
+      banner.className = "live-banner off";
+      banner.innerHTML = `⏸️ अभी किसी भी ग्रुप में सेवा नहीं चल रही`;
+    }
+  }
+
+  // ==========================================
+  // 6. ADMIN LOGIN LOGIC (Firebase Auth)
+  // ==========================================
+  window.openAdmin = function() {
+    document.getElementById("loginModal").classList.add("show");
+    document.getElementById("adminEmail").value = "";
+    document.getElementById("adminPass").value = "";
+  }
+
+  window.closeLogin = function() {
+    document.getElementById("loginModal").classList.remove("show");
+  }
+
+  window.checkLogin = async function() {
+    const email = document.getElementById("adminEmail").value;
+    const pass = document.getElementById("adminPass").value;
+    
+    try {
+      // Firebase se login check kar rahe hain
+      await signInWithEmailAndPassword(auth, email, pass);
+      closeLogin();
+      document.getElementById("adminModal").classList.add("show");
+      renderAdminTable();
+    } catch (error) {
+      console.error(error);
+      alert("❌ गलत ईमेल या पासवर्ड! (कृपया Firebase में बनाया गया ईमेल/पासवर्ड डालें)");
+    }
+  }
+
+  // ==========================================
+  // 7. ADMIN PANEL LOGIC
+  // ==========================================
+  window.closeAdmin = function() {
+    document.getElementById("adminModal").classList.remove("show");
+  }
+
+  window.renderAdminTable = function() {
+    const tbody = document.getElementById("adminTableBody");
+    tbody.innerHTML = "";
+
+    data.forEach((row, index) => {
+      let sTime = row.start.toString().includes(":") ? row.start : String(row.start).padStart(2, '0') + ":00";
+      let eTime = row.end.toString().includes(":") ? row.end : String(row.end).padStart(2, '0') + ":00";
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>
+          <select id="grp_${index}">
+            <option value="A" ${row.group === 'A' ? 'selected' : ''}>A</option>
+            <option value="B" ${row.group === 'B' ? 'selected' : ''}>B</option>
+            <option value="C" ${row.group === 'C' ? 'selected' : ''}>C</option>
+            <option value="D" ${row.group === 'D' ? 'selected' : ''}>D</option>
+          </select>
+        </td>
+        <td><input type="text" id="jila_${index}" value="${row.jila}"></td>
+        <td><input type="time" id="start_${index}" value="${sTime}"></td>
+        <td><input type="time" id="end_${index}" value="${eTime}"></td>
+        <td><input type="text" id="time_${index}" value="${row.time}"></td>
+        <td><input type="text" id="seva_${index}" value="${row.seva}"></td>
+        <td>
+          <input type="checkbox" id="completed_${index}" ${row.completed ? 'checked' : ''}>
+        </td>
+        <td style="text-align:center;">
+          <button class="del-btn" onclick="promptDelete(${index})">❌</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  window.addNewRow = function() {
+    data.push({ group: "A", jila: "", start: "09:00", end: "13:00", time: "9:00 AM – 1:00 PM", seva: "शौचालय सेवा", completed: false });
+    renderAdminTable();
+  }
+
+  window.promptDelete = function(index) {
+    deleteIndexToConfirm = index;
+    document.getElementById("confirmModal").classList.add("show");
+  }
+
+  window.closeConfirm = function() {
+    document.getElementById("confirmModal").classList.remove("show");
+    deleteIndexToConfirm = -1;
+  }
+
+  window.confirmDelete = function() {
+    if (deleteIndexToConfirm !== -1) {
+      data.splice(deleteIndexToConfirm, 1);
+      renderAdminTable();
+      closeConfirm();
+    }
+  }
+
+  window.saveAdminData = async function() {
+    const newData = [];
+    
+    data.forEach((row, index) => {
+      newData.push({
+        group: document.getElementById(`grp_${index}`).value,
+        jila: document.getElementById(`jila_${index}`).value,
+        start: document.getElementById(`start_${index}`).value,
+        end: document.getElementById(`end_${index}`).value,
+        time: document.getElementById(`time_${index}`).value,
+        seva: document.getElementById(`seva_${index}`).value,
+        completed: document.getElementById(`completed_${index}`).checked
+      });
+    });
+
+    data = newData;
+    
+    try {
+      await setDoc(doc(db, "websiteData", "sewaList"), { list: data });
+      closeAdmin();
+      alert("✅ डेटा सर्वर पर सेव हो गया! अब सभी के फोन में अपडेट हो जाएगा।");
+    } catch (error) {
+      console.error("Error saving data: ", error);
+      alert("❌ डेटा सेव करने में समस्या आई। कृपया इंटरनेट चेक करें।");
+    }
+  }
+
+  initDates();
+  setInterval(renderChart, 60000); 
+
+</script>
+
+</body>
+</html>
